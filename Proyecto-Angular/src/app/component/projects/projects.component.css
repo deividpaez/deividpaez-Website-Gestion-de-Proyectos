@@ -1,0 +1,21 @@
+#proyectos h2{
+  float: left;
+  display: block;
+  font-size: 50px;
+}
+.image_Projects{
+    width: 541px;
+    margin: 20px;
+}
+.projectss li{
+    padding: 167px;
+    display: block;
+ 
+}
+.projectss li ol{
+    font-family: monospace;
+}
+.projectss  li a{
+    text-decoration: none;
+    color: black;
+}

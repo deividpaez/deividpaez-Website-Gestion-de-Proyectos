@@ -1,0 +1,74 @@
+<div class="container" *ngIf="project">
+    <div *ngIf ="status == 'succes'" class="Project_True">
+        El Proyecto se ha Creado Satifactoriamente, puedes <a [routerLink]="['/proyecto', save_project._id]">verlo aqui</a> 
+         </div>
+         <div *ngIf ="status == 'failed'" class="Project_False">
+            Error El Proyecto No ha Creado Satifactoriamente 
+               </div>
+    <h2>{{title}}</h2>
+ 
+    
+</div>
+
+<form #projectForm ="ngForm" (ngSubmit)="onSubmit(projectForm)"  >
+    <h5 id="h2_form">Ingrese su Proyecto</h5>
+    <div class="row gtr-uniform"> 
+        <div class="col-6 col-12-xsmall">
+            <label for="name">Name</label>
+             <input type="text" name="name" id="name" placeholder="Ej: Deivid" #name="ngModel" [(ngModel)] = "project.name" required>
+             <span *ngIf="name.touched && !name.valid" class="animacion_span">
+                 El nombre es obligatorio
+             </span>
+        </div>
+        <div class="col-6 col-12-xsmall">
+            <label for="Description">Description</label>
+            <input type="text" name="Description" id="#" placeholder="Ej: Proyecto de registro de personas.."  #Description="ngModel" [(ngModel)] = "project.description" required>
+            <span *ngIf="Description.touched && !Description.valid" class="animacion_span">
+               La Descripcion es Obligatoria
+            </span>
+        </div>
+          <div class="col-6 col-12-xsmall">
+            <label for="category">Category</label>
+            <input type="text" name="category" id="#" placeholder="Ej: Programador FullStack"  #Category="ngModel" [(ngModel)] = "project.category"
+            required>
+            <span *ngIf="Category.touched && !Category.valid" class="animacion_span">
+                La categoria es Obligatoria
+             </span>
+            
+        </div>
+        <div class="col-6 col-12-xsmall">
+            <label for="imagen">Subir Imagen</label>
+            <span *ngIf="project.image">
+                <img src="{{url+'get-image/'+project.image}} " *ngIf="project.image" alt="" class="image_Projects" width="200px">
+            </span>
+            <input  type="file" name="imagen" id="Subir_Imagen" (change) = "fileChangeEvent($event)" required  #Imagen="ngModel" [(ngModel)] = "project.image">
+            <span *ngIf="Imagen.touched && !Imagen.valid" class="animacion_span">
+                La foto es obligatoria
+            </span>
+        </div>
+        <div class="col-6 col-12-xsmall">
+            <label for="date">Year</label>
+            <input type="date" name="date" id="#"  #year="ngModel" [(ngModel)] = "project.year" required>
+            
+            
+        </div>
+        <div class="col-12">
+            <label for="langs"> Seleccione </label>
+            <select name="langs" id="demo-category"  #langs="ngModel" [(ngModel)] = "project.langs">
+                <option value="">- Langs -</option>
+                <option value="Python">Python</option>
+                <option value="JavaScript">JavaScript</option>
+                <option value="Java">Java</option>
+                <option value="C++">C++</option>
+            </select>
+        </div>
+        
+        <input type="submit" value="Send" id="Button_Proyecto" [disabled]="!projectForm.form.valid"> 
+    </div>
+</form>
+
+
+
+    
+    
+    

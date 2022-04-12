@@ -1,0 +1,21 @@
+{
+  "name": "api-rest",
+  "version": "1.0.0",
+  "description": "Api Rest",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon index.js"
+  },
+  "author": "Deivid Paez",
+  "license": "MIT",
+  "dependencies": {
+    "connect-multiparty": "^2.2.0",
+    "express": "^4.17.1",
+    "mongoose": "^6.0.10",
+    "multiparty": "^4.2.2"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.13"
+  }
+}
